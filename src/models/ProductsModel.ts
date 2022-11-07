@@ -1,22 +1,5 @@
 import { Pool, ResultSetHeader, RowDataPacket } from 'mysql2/promise';
-import { IProduct } from '../interfaces';
-
-// const insertProduct = async ({name, amount}): Promisse<> => {
-//   const [result] = await connection.execute(
-//     'INSERT INTO Trybesmith.Products (name, amount) VALUES (?,?)',
-//     [name, amount],
-//   );
-//   return { status: 201, mesage: { id: result.insertId, name, amount } };
-// };
-
-// const getAllProducts = async () => {
-//   const [products] = await connection.execute(
-//     'SELECT * FROM Trybesmith.Products',
-//   );
-//   return { status: 201, mesage: products };
-// };
-
-// export default { insertProduct, getAllProducts };
+import { IProduct } from '../interfaces/IProduct';
 
 export default class ProductsModel {
   public connection: Pool;

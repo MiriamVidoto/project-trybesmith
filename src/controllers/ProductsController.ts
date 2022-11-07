@@ -1,15 +1,7 @@
 import { Request, Response } from 'express';
-import { IProduct } from '../interfaces';
+import { IProduct } from '../interfaces/IProduct';
 
 import ProductsService from '../services/ProductsService';
-
-// const insertProduct = async (req: Request, res: Response) => {
-//   const data = req.body;
-//   const result = await productsServiceInsert(data);
-//   res.(result.status).json(result.message);
-// }
-
-// export default {insertProduct}
 
 export default class ProductsController {
   public service: ProductsService;
@@ -18,8 +10,8 @@ export default class ProductsController {
     this.service = new ProductsService();
   }
 
-  create = async (req: Request, res: Response) => {
-    const product: IProduct = req.body;
+  create = async (req: Request< object, object, IProduct>, res: Response) => {
+    const product = req.body;
     const products = await this.service.create(product);
     res.status(201).json(products);
   };
